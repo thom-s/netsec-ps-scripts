@@ -14,4 +14,11 @@ The [PlainText](https://docs.microsoft.com/en-us/windows-hardware/customize/desk
 Normally, this folder should be deleted at the end of the imaging process. In reality, many system administrators have reported certain deployments not deleted this folder. This script attempts to remediate this issue by scanning hosts for this folder and deleting it if you wish. It will then generate a CSV report.
 
 ## How to use
+### Parameters
+All the following parameters are optional.
 
+`-ComputerList` : Path of the list of computers to scan. Defaults to `computers.txt` in the script's folder.
+
+`-ReportPath` : Path where to output the report. Defaults to `report.csv` in the script's folder.
+
+`-DeleteFolder` : Use this flag to delete `C:\MININT`. By default it will not be deleted.
