@@ -2,7 +2,7 @@
 
 This script will look for files that were not deleted properly during Windows images deployments from MDT and delete them. 
 
-## Possible security issue
+## Possible security issue with MDT deployments
 
 The MDT deployment process creates the `C:\MININT` folder during the Windows imaging process which contains an `unattend.xml` file. This file can contain the following passwords:
 * An [AdministratorPassword](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-useraccounts-administratorpassword) element.
@@ -11,7 +11,9 @@ The MDT deployment process creates the `C:\MININT` folder during the Windows ima
 
 The [PlainText](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup-autologon-password-plaintext) element (which applies to all elements mentionned above) can be set to `true` or `false`. But even if it is set to `false`, the password is not actually encrypted. It is simply encoded as a Base64 string which can easily be decoded.
 
-Normally, this folder should be deleted at the end of the imaging process. In reality, many system administrators have reported certain deployments not deleted this folder. This script attempts to remediate this issue by scanning hosts for this folder and deleting it if you wish. It will then generate a CSV report.
+Normally, this folder should be deleted at the end of the imaging process. In reality, many system administrators have reported certain deployments failing to delete this folder. 
+
+This script attempts to remediate this issue by scanning a list of hosts for the `C:\MININT` folder and deleting it if you wish. It will then generate a CSV report.
 
 ## How to use
 ### Parameters
