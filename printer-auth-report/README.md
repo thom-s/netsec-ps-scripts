@@ -2,6 +2,8 @@
 
 Find network printers that don't require authentication to the configuration web interface.
 
+**Requires PowerShell Core 6**
+
 ## How it works
 
 First, the script will get all the printers from the servers in the file supplied by the optional `-PrintServerList` parameter through a WMI request.
