@@ -1,5 +1,7 @@
 # netsec-ps-scripts
-Collection of PowerShell network security scripts for system administrators. 
+Collection of PowerShell network security scripts for system administrators.
+
+All scripts were tested in PowerShell 5.1 unless specified.
 
 **Please read the README file in each folder before running any scripts.**
 
