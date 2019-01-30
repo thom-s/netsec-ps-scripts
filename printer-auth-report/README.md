@@ -8,7 +8,7 @@ Find network printers that don't require authentication to the configuration web
 
 First, the script will get all the printers from the servers in the file supplied by the optional `-PrintServerList` parameter through a WMI request.
 
-It will then test if the configuration web interface requires authentication on each printer. Different printers having different configuration interfaces, we need to test them all. It does so by doing an unauthenticated web request on all web paths in the file supplied by the optional `-TestPathList` parameter. 
+It will then test if the configuration web interface requires authentication on each printer. Different printers having different configuration interfaces, we need to test them all. It does so by doing an unauthenticated web request on all web paths in the file supplied by the optional `-TestPathList` parameter. This file is simply the list of login pages for each printer models in your network (see example at the bottom).
 
 **The script expects each printers to return at least one `401 Unauthorized` HTTP return code to consider the printer as secured.** It will consider the printer to be unsecured if it receives any `200 OK` HTTP status codes or to be manually reviewed if it receives anything else.
 
