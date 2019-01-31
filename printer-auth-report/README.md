@@ -2,7 +2,7 @@
 
 Find network printers that don't require authentication to the configuration web interface.
 
-**Requires PowerShell Core 6**
+**Requires PowerShell Core 6** ⚠️
 
 ## How it works
 
