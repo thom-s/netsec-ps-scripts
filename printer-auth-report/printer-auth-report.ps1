@@ -18,18 +18,22 @@ Else{
 
 # Initialise the report array, including the first line
 $report = @()
-$report += ,@("Hostname","IP", "Reachable?", "Requires authentication?")
+$report += ,@("Server","Hostname","IP", "Reachable?", "Requires authentication?")
 
 # Get list of printers
-
 $printers = @()
-$PrintServers | ForEach-Object{
-    $server = $_
-    Get-WMIObject -Class Win32_Printer -ComputerName $server | ForEach-Object{
-        $printers += , @($_.Name, $_.PortName, $server)
+Try{
+    $PrintServers | ForEach-Object{
+        $server = $_
+        Get-CimInstance -ClassName Win32_Printer -ComputerName $server | ForEach-Object{
+            $printers += , @($_.Name, $_.PortName, $server)
+        }
     }
 }
+Catch(e){
+    Write-Output e
 
+}
 # Test all printers
 $printers | Foreach-Object{
     
@@ -53,7 +57,7 @@ $printers | Foreach-Object{
             Write-Output "Testing $printer_name at $query_url"
 
             try {
-                $response = Invoke-WebRequest -URI $query_url -SkipCertificateCheck
+                $response = Invoke-WebRequest -URI $query_url -SkipCertificateCheck -MaximumRedirect 0
                 $status_code = [int]$r.StatusCode
             }
             catch {
