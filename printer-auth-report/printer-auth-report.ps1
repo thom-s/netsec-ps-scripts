@@ -26,14 +26,14 @@ Try{
     $PrintServers | ForEach-Object{
         $server = $_
         Get-CimInstance -ClassName Win32_Printer -ComputerName $server | ForEach-Object{
-            $printers += , @($_.Name, $_.PortName, $server)
+            $printers += , @($_.Name, $($_.PortName).Replace('..','.'), $server)
         }
     }
 }
-Catch(e){
-    Write-Output e
-
+Catch{
+    Write-Output $_
 }
+
 # Test all printers
 $printers | Foreach-Object{
     
@@ -53,12 +53,16 @@ $printers | Foreach-Object{
         # Test all web paths
         $TestPaths | ForEach-Object{
 
+
             $query_url = "$($Protocol)://$printer_ip/$_"
             Write-Output "Testing $printer_name at $query_url"
 
             try {
                 $response = Invoke-WebRequest -URI $query_url -SkipCertificateCheck -MaximumRedirect 0
                 $status_code = [int]$r.StatusCode
+                if($status_code -eq 0){
+                    $status_code = 200
+                }
             }
             catch {
                 $status_code = [int]$_.Exception.Response.StatusCode
