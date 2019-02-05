@@ -58,3 +58,13 @@ login.html
 config/index.html?content=security
 webAccess/adminpanel.htm
 ```
+
+### Report example
+
+Here's an example of what the CSV report will look like :
+
+```
+Server,Hostname,IP,Reachable?,Requires authentication?
+printserv1,printer_1,10.0.0.2,TRUE,Secure
+printserv2,printer_2,10.0.0.3,FALSE,Unreachable
+```
