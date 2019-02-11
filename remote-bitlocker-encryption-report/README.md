@@ -12,6 +12,15 @@ Along with applying patches on SSD firmware, [CERT advises not to use hardware B
 This script helps network administrators mitigate this vulnerability by generating a CSV report listing computers and their BitLocker encryption method using the [manage-bde](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/manage-bde) command remotely. This report can be used by system administrators to identify workstations that need to have their encryption type changed. Network administrators can then manually change this encryption type or [remotely through GPO](https://blogs.technet.microsoft.com/dubaisec/2016/03/04/bitlocker-aes-xts-new-encryption-type/).
 
 ## How to use
+
+Simply run the script with admin credentials.
+
+```PowerShell
+./remote-bitlocker-encryption-report.ps1
+   [-ComputerList] <String>
+   [-ReportPath] <String>
+```
+
 ### Parameters
 All the following parameters are optional.
 
