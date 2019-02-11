@@ -16,6 +16,16 @@ Normally, this folder should be deleted at the end of the imaging process. In re
 This script attempts to remediate this issue by scanning a list of hosts for the `C:\MININT` folder and deleting it if you wish. It will then generate a CSV report.
 
 ## How to use
+
+Simply run the script with administrator credentials.
+
+```PowerShell
+./delete-remote-deployment-files.ps1
+    [-ComputerList] <String>
+    [-ReportPath] <String>
+    [-DeleteFolder]
+```
+
 ### Parameters
 All the following parameters are optional.
 
