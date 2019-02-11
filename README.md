@@ -14,3 +14,9 @@ All scripts were tested in PowerShell 5.1 unless specified.
 
 #### [remote-bitlocker-encryption-report](remote-bitlocker-encryption-report)
 * Bitlocker hardware encryption vulnerability mitigation. (CVE-2018-12038)
+
+## Contribution
+
+Contributions are welcome! Just do a pull request and it will be reviewed.
+
+If you're creating a new script, create a folder and respect the current naming convention.
