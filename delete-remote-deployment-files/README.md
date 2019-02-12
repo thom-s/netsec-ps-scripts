@@ -1,6 +1,8 @@
 # delete-remote-deployment-files
 
-This script will look for files that were not deleted properly during Windows images deployments from MDT and delete them. 
+This script will look for files that were not deleted properly during Windows images deployments from MDT and delete them.
+
+**Use the `-Verbose` parameter for verbose output**
 
 ## Possible security issue with MDT deployments
 
