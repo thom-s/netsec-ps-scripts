@@ -16,6 +16,8 @@ $report += ,@("Hostname","Could Connect?", "Found MININT?", "Deleted MININT?")
 # Loop through each computer
 $Computers | ForEach-Object{
     
+    Write-Verbose -Verbose -Message "Connecting to $_ ..."
+    
     # Initialise variables
     $could_connect = $null
     $found_minint = $null
@@ -40,6 +42,7 @@ $Computers | ForEach-Object{
     # Delete C:\MININT
     if($could_connect -and $DeleteFolder){     # If we could connect and the DeleteFolder parameter is set
         Try{
+            Write-Verbose -Verbose -Message "Deleting C:\MININT folder ..."
             Remove-Item \\$_\c$\MININT -Force  # Delete C:\MININT
             $deleted_minint = $true            # If it worked
         }
@@ -53,6 +56,8 @@ $Computers | ForEach-Object{
 
     # Append report with data
     $report += ,@($_,$could_connect, $found_minint, $deleted_minint)
+    
+    Write-Verbose -Verbose -Message "Done with $($_)."
 }
 
 # Output CSV
