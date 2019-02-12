@@ -2,6 +2,8 @@
 
 Find network printers that don't require authentication to the configuration web interface.
 
+**Use the `-Verbose` parameter for verbose output**
+
 **Requires PowerShell Core 6** ⚠️
 
 ## How it works
