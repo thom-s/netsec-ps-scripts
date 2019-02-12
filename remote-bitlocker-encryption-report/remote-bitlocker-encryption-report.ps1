@@ -14,16 +14,16 @@ $report += ,@("Hostname","Encryption Method")
 # Get the encryption type for each PC
 $Computers | ForEach-Object{# Loop through each computer
     $computer = $_
-    Write-Output "Connecting to $computer ..."
+    Write-Verbose -Verbose -Message "Connecting to $computer ..."
     Try{                                                                  
         $bitlocker_status = manage-bde -status -computername $computer | Where {$_ -match "Encryption Method:"}  # Run manage-bde remotely and match the "Encryption Method" line
         $bitlocker_status = $bitlocker_status.Replace("Encryption Method:","").Trim()                            # Remove "Encryption Method:" header from the line
         $report += , @($computer,$bitlocker_status)                                                              # Add the PC and Bitlocker encryption type to the report
-        Write-Output "Done."
+        Write-Verbose -Verbose -Message "Done with $($computer)."
     }
     Catch{                                           # If the computer is not reachable
         $report += , @($computer,"UNREACHABLE")      # Output UNREACHABLE to the report
-        Write-Output "Couldn't connect to $computer"
+        Write-Verbose -Verbose -Message "Couldn't connect to $computer"
     }                                                             
 }
 
