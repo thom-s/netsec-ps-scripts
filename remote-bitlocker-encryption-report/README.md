@@ -1,6 +1,8 @@
 # remote-bitlocker-encryption-report
 This PowerShell script takes a list of PC as input, gets their BitLocker encryption type remotely, and outputs the list as a CSV file to help mitigate against CVE-2018-12038.
 
+**Use the `-Verbose` parameter for verbose output**
+
 ## Prevent CVE-2018-12038 vulnerability
 Description of CVE-2018-12038 from NIST :
 >An issue was discovered on Samsung 840 EVO and 850 EVO devices (only in "ATA high" mode, not vulnerable in "TCG" or "ATA max" mode), Samsung T3 and T5 portable drives, and Crucial MX100, MX200 and MX300 devices. Absence of a cryptographic link between the password and the Disk Encryption Key allows attackers with privileged access to SSD firmware full access to encrypted data.
