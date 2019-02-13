@@ -133,7 +133,7 @@ Write-Verbose -Verbose -Message "Done!"
 
     }
     Else{
-        Write-Output "Couldn't reach $printer_name at $printer_ip"
+        Write-Verbose -Verbose -Message "Couldn't reach $printer_name at $printer_ip"
         $printer_reachable = $false
         $printer_secured = 'Unreachable'
     }
@@ -145,4 +145,4 @@ Write-Verbose -Verbose -Message "=== Generating CSV report to $ReportPath ==="
 # Create the CSV report
 Add-Content $ReportPath -Value "SEP=,"                     # Write out the first line
 $report | % { $_ -join ","} | Out-File $ReportPath -Append # Write out the rest of the report
-Write-Output "Done!"
+Write-Verbose -Verbose -Message "Reported created to $ReportPath !"
