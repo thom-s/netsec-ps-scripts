@@ -103,7 +103,7 @@ Write-Verbose -Verbose -Message "Done!"
 
 
             $query_url = "$($Protocol)://$printer_ip/$_"
-            Write-Output "Testing $printer_name at $query_url"
+            Write-Verbose -Verbose -Message "Testing $printer_name at $query_url"
 
             try {
                 $response = Invoke-WebRequest -URI $query_url -SkipCertificateCheck -MaximumRedirect 0
@@ -117,7 +117,7 @@ Write-Verbose -Verbose -Message "Done!"
             }
 
             $return_codes += , $status_code 
-            Write-Output "$query_url returned HTTP $status_code"
+            Write-Verbose -Verbose -Message "$query_url returned HTTP $status_code"
     
         }
         
@@ -141,7 +141,7 @@ Write-Verbose -Verbose -Message "Done!"
     $report += ,@($printer_server, $printer_name,$printer_ip, $printer_reachable, $printer_secured)
 }
 
-Write-Output "`n=== Generating CSV report to $ReportPath ===`n"
+Write-Verbose -Verbose -Message "=== Generating CSV report to $ReportPath ==="
 # Create the CSV report
 Add-Content $ReportPath -Value "SEP=,"                     # Write out the first line
 $report | % { $_ -join ","} | Out-File $ReportPath -Append # Write out the rest of the report
