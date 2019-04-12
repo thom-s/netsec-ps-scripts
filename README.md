@@ -9,6 +9,9 @@ All scripts were tested in PowerShell 5.1 unless specified.
 #### [delete-remote-deployment-files](delete-remote-deployment-files)
 * Find and delete leftover deployment files with potential passwords.
 
+#### [password-expiration-report](password-expiration-report)
+* Audit accounts that never expire, password expiration dates and password last set dates.
+
 #### [printer-auth-report](printer-auth-report)
 * Find network printers that don't require authentication to the admin web interface.
 
