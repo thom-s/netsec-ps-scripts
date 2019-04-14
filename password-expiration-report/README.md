@@ -2,7 +2,12 @@
 
 This script will generate an audit report on accounts with passwords that never expire, password expiration dates and password last set dates. 
 
-This script is currently a WIP.
+This script can be used to audit password policies and make sure they are applied properly. It can also be used to audit users in groups with special password policies in your organization, such as users used by specific softwares or Exchange mailboxes for example.
+
+**This script is currently a WIP.**
+   - Needs to be cleaned up
+   - Needs more comments
+   - Verbose will be added soon (currently the only output is the report)
 
 ## How to use
 
