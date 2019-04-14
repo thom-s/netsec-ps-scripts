@@ -20,6 +20,8 @@ All scripts were tested in PowerShell 5.1 unless specified.
 
 ## Contribution
 
-Contributions are welcome! Just do a pull request and it will be reviewed.
+Contributions are welcomed! Simply do a pull request and it will be reviewed.
 
 If you're creating a new script, create a folder and respect the current naming convention.
+
+**Please submit any features or ideas you would like to see implemented as an issue! Feedback is always welcomed.**
