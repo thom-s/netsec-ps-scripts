@@ -15,6 +15,10 @@ All scripts were tested in PowerShell 5.1 on Windows 10 unless specified. Please
 #### [printer-auth-report](printer-auth-report)
 * Find network printers that don't require authentication to the admin web interface.
 
+
+#### [printer-telnet-ftp-report](printer-telnet-ftp-report)
+* Find network printers that have telnet or FTP enabled.
+
 #### [remote-bitlocker-encryption-report](remote-bitlocker-encryption-report)
 * Bitlocker hardware encryption vulnerability mitigation. (CVE-2018-12038)
 
