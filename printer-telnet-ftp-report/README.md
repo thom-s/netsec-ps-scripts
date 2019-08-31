@@ -1,6 +1,6 @@
 # printer-telnet-ftp-report
 
-Find network printers that have telnet or FTP services enabled.
+Find network printers that have telnet or FTP services enabled. These services should normally be turned off unless they're required, to prevent unauthorized access to the printers.
 
 **Use the `-Verbose` parameter for verbose output**
 
